@@ -13,12 +13,12 @@ h2. 当前：Apr 23,2014
 
 h2. 总览表格
 
-|_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数*小*为佳）	|调试效果（综合考虑仿真效果、能调试的项等，分数*大*为佳）	|_. 可用的桌面设备	|_. 可用的移动设备及可调试的浏览器	|简要步骤													|
-|Chorme模拟器				|非真机，只是模拟				|0													|1													|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 					|
-|weinre						|安装较为繁琐					|3													|2													|PC、MAC				|全部							| "GO":#weinre							 					|
-|调试Android上的Chrome	 	|需要翻墙					|2													|4													|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 	|
-|调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1													|3													|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 		|
-|调试iOS上的Safari		 	|需要MAC						|2													|4													|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 		|
+|_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数 *小* 为佳）	|调试效果（综合考虑仿真效果、能调试的项等，分数 *大* 为佳）	|_. 可用的桌面设备	|_. 可用的移动设备及可调试的浏览器	|简要步骤													|
+|Chorme模拟器				|非真机，只是模拟				|0														|1														|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 					|
+|weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 					|
+|调试Android上的Chrome	 	|需要翻墙					|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 	|
+|调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1														|3														|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 		|
+|调试iOS上的Safari		 	|需要MAC						|2														|4														|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 		|
 
 h2. 简要步骤
 
@@ -34,7 +34,7 @@ h3. weinre
 过程稍微繁琐，但是这个方案能调试几乎所有平台的所有浏览器，只要能运行js的就行
 
 # 安装nodejs
-# 安装weinre到global，在命令行中运行 @npm -g install weinre@ （MAC可能需要在前面加上 @sudu@ ）
+# 安装weinre到global，即在命令行中运行 @npm -g install weinre@ （MAC可能需要在前面加上 @sudo@ ）
 # 获取本机IP地址（PC：开始->运行->cmd，输入 @ipconfig@ ，查看“IPv4地址”字段； MAC：在网络偏好设置内），设获取到的IP地址为 @4.4.4.4@ 
 # 在命令行运行weinre： @weinre --boundHost 4.4.4.4@ ，其中IP地址为上一步所获取的地址，如果弹出防火墙，请允许访问（ "示意图":images/weinre_1.jpg ）
 # 在PC或MAC上用浏览器打开 @http://4.4.4.4:8080/client/#anonymous@ ，其中IP地址为第三步所获取的地址（ "示意图":images/weinre_2.jpg ）
