@@ -62,7 +62,7 @@ h3. 调试Android上的Chrome
 # 勾选界面中的 @Discover USB devices@ ，直到搜索到你的Android设备（ "示意图":images/调试Android上的Chrome_1.png ）
 # 在移动设备上弹出的是否允许远程调试上，选择“允许”
 # 在下面的页面列表（将展示已在Android上的chrome中打开的页面），点击对应的 @inspect@ 开始调试
-# 此时将在桌面版Chrome上弹出一个新的标签页，即为调试界面；如果很久都没用响应，请翻墙后再试（ "示意图":images/调试Android上的Chrome_2.png ）（"一个免费的翻墙服务":http://lfjs.me/gwrbea）
+# 此时将在桌面版Chrome上弹出一个新的标签页，即为调试界面；如果很久都没用响应，请翻墙后再试（ "示意图":images/调试Android上的Chrome_2.png ）（ "一个免费的翻墙服务":http://lfjs.me/gwrbea ）
 
 其他参考链接
 
