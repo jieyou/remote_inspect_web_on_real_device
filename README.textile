@@ -35,7 +35,7 @@ h3. weinre
 
 1. 安装nodejs <!--pre前后要空格，所以使用#会重新开始编号，于是此处手动写上编号-->
 2. 安装weinre到global，即在命令行中运行 @npm -g install weinre@ （MAC可能需要在前面加上 @sudo@ ）
-3. 获取本机IP地址（PC：开始->运行->cmd，输入 @ipconfig@ ，查看“IPv4地址”字段； MAC：在网络偏好设置内），设获取到的IP地址为 @4.4.4.4@ 
+3. 获取本机IP地址（PC：开始->运行->cmd，输入 @ipconfig@ ，查看“IPv4地址”字段； MAC：在网络偏好设置内），假设获取到的IP地址为 @4.4.4.4@ 
 4. 在命令行运行weinre： @weinre --boundHost 4.4.4.4@ ，其中IP地址为上一步所获取的地址，如果弹出防火墙，请允许访问（ "示意图":images/weinre_1.jpg ）
 5. 在PC或MAC上用浏览器打开 @http://4.4.4.4:8080/client/#anonymous@ ，其中IP地址为第三步所获取的地址（ "示意图":images/weinre_2.jpg ）
 6. 将移动设备连接到与PC或MAC同一局域网，打开移动设备上的需要调试的浏览器，然后随便打开一个网页。将它保存为书签
@@ -47,7 +47,11 @@ target/target-script-min.js#anonymous");document.getElementsByTagName("body")[
 
 ，其中IP地址为第三步所获取的地址（复制后请去掉代码中的换行，使之成为一行）<!--[0]不换行会被转义-->
 8. 在移动设备浏览器上打开想要调试的页面，然后点击上一步保存的书签，即可在PC或MAC上的页面中的target中找到对应页面，点击可以开始调试（ "示意图":images/weinre_3.jpg ）（ "示意图":images/weinre_4.png ）
-9. 更多：可以考虑在某个机器上搭建一个统一的weinre服务器，供团队成员共用，此方案我尚未尝试
+
+更多：
+
+# 可以考虑在某个机器上搭建一个统一的weinre服务器，供团队成员共用，此方案我尚未尝试
+# 在上述第7步开始，可以不采用书签的形式，而是考虑在代码中引入它提供的调试js文件，如 @<script src="http://4.4.4.4:8080/target/target-script-min.js#anonymous"></script>@ （这种情况适用于不能使用书签的场景，如app内的webview、微信中等，但是上线之前要记得移除这个js的引用）
 
 其他参考链接
 
