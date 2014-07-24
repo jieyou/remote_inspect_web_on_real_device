@@ -76,7 +76,7 @@ h3. 调试Android上的UC
 
 # 在Android设备上安装UC浏览器开发版，http://www.uc.cn/business/developer/ ，点击第一行右侧的“安装包下载”（ "示意图":images/调试Android上的UC_1.png ）
 # 获取Android设备的IP，一般在WLAN设置内，假设为 @4.4.4.4@ 
-# 用和手机处于同一网段 _（百度公司内部需要切换wifi到baidu_wifi）_ 的PC或MAC访问步骤2获得的IP后加上 @:9998@ ，如例子中即为 @4.4.4.4:9998@
+# 用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 @:9998@ ，如例子中即为 @4.4.4.4:9998@
 # 在Android设备上弹出的是否允许远程调试上，选择“允许”（ "示意图":images/调试Android上的UC_2.png ），即可开始调试（ "示意图":images/调试Android上的UC_3.png ）
 
 其他参考链接
