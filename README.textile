@@ -2,32 +2,33 @@ h1. 各种 真机远程调试 方法 汇总
 
 “真机远程调试”（remote inspect web on real device），是指用桌面电脑（PC或MAC）远程连接上移动设备，通过类似Chrome浏览器开发人员工具的界面，来调试移动设备上运行的网页
 
-h2. 当前：Apr 23,2014
+h2. 当前：Oct 27,2014
 
 “真机远程调试”的方法总是在发展，日新月异，有必要在每次更新本文档时标注当前时间及当前相关软件版本
 
-* 当前最新 桌面版Chrome 版本：PC，MAC：34.0.1847.116
-* 当前最新 Android上的Chrome 版本：34.0.1847
-* 当前最新 Android上的UC开发人员版 版本：9.4.1
-* 当前最新 iOS：7.1.1
+* 当前最新 桌面版Chrome 版本：MAC：38.0.2125.104，PC：未知
+* 当前最新 Android上的Chrome 版本：38.0.2125.102
+* 当前最新 Android上的UC开发人员版 版本：9.8.9.457
+* 当前最新 iOS：8.1
 
 h2. 总览表格
 
-|_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数 *小* 为佳）	|调试效果（综合考虑仿真效果、能调试的项等，分数 *大* 为佳）	|_. 可用的桌面设备	|_. 可用的移动设备及可调试的浏览器	|简要步骤													|
-|Chorme模拟器				|非真机，只是模拟				|0														|1														|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 					|
-|weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 					|
-|调试Android上的Chrome	 	|需要翻墙					|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 	|
-|调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1														|3														|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 		|
-|调试iOS上的Safari		 	|需要MAC（甚至可以无需iOS设备）|2														|4														|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 		|
+|_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数 *小* 为佳）		|调试效果（综合考虑仿真效果、能调试的项等，分数 *大* 为佳）		|_. 可用的桌面设备		|_. 可用的移动设备及可调试的浏览器	|简要步骤															|
+|Chorme模拟器				|非真机，只是模拟				|0														|2（新版本加入了模拟网络链接的功能，故上调评分）				|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 						|
+|weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 						|
+|调试Android上的Chrome	 	|需要翻墙						|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 		|
+|调试Android APP里的webview 	|需要翻墙						|3														|4														|PC、MAC				|Android APP里的webview			| "GO":#%E8%B0%83%E8%AF%95android-app%E9%87%8C%E7%9A%84webview 	|
+|调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1														|3														|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 			|
+|调试iOS上的Safari		 	|需要MAC（甚至可以无需iOS设备）	|2														|4														|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 			|
 
 h2. 简要步骤
 
 h3. Chorme模拟器
 
-# 在PC或MAC上打开Chrome浏览器，然后打开开发人员工具
-# 首次使用需要开启 @Emulation@ 标签，打开开发人员工具右边的设置（齿轮图标），选择 @General@ 标签，在 @Appearance@ 下勾选 @Show 'Emulation' view in console drawer.@ （ "示意图":images/Chrome模拟器_1.png ）
-# 打开设置左边的那个类似 @>三@ 的图标，切换到 @Emulation@ 标签，切换到 @Device@ 子标签，选择一个机型，点击 @Emulate@ 按钮，即可开始模拟了（ "示意图":images/Chrome模拟器_2.png ）
-# 另外的子标签 @Screen@ 、 @User Agent@ 、 @Sensors@ 可以分别调整，来定制化你的模拟（ "示意图":images/Chrome模拟器_3.png ）
+# 在PC或MAC上打开Chrome浏览器，打开想要调试的页面，然后打开开发人员工具
+# 点击开发人员工具顶栏上的手机图标，即可开始调试（ "示意图":images/Chrome模拟器_4.png ），一般来说需要重新刷新页面
+# 在页面顶部可以看到设备选择下拉菜单 @Device@ 和 模拟网络环境的下拉菜单 @Network@ ，及左侧的清除选择按钮和打开关闭 @media queries@ 的按钮（ "示意图":images/Chrome模拟器_5.png ）
+# 打开设置左边的那个类似 @>三@ 的图标，切换到 @Emulation@ 标签，可以更细粒度地调整，来定制化你的模拟（ "示意图":images/Chrome模拟器_6.png ）
 
 h3. weinre
 
@@ -70,6 +71,21 @@ h3. 调试Android上的Chrome
 
 其他参考链接
 
+* https://developer.chrome.com/devtools/docs/remote-debugging
+
+h3. 调试Android APP里的webview
+
+# 通过修改代码，在APP内设置允许远程调试（需安卓版本为4.4及以上）： "方法":https://developer.chrome.com/devtools/docs/remote-debugging#configure-webview ，然后安装APP
+# 开启当前Android设备的USB调试
+# 在PC或MAC上安装chrome浏览器（版本>=32）和对应的Android设备驱动（如果找不到，可以在这个 "列表":http://developer.android.com/tools/extras/oem-usb.html 内尝试）
+# 用USB线连接Android设备，在PC或MAC上的chrome地址栏输入 @chrome://inspect@ 然后回车，或通过菜单图标->工具->检查设备，进入调试界面
+# 勾选界面中的 @Discover USB devices@ ，直到搜索到你的Android设备（ "示意图":images/调试Android上的Chrome_1.png ）
+# 在移动设备上弹出的是否允许远程调试上，选择“允许”
+# 在下面的页面列表（将展示已在Android上的chrome中打开的页面），点击对应的 @inspect@ 开始调试
+# 此时将在桌面版Chrome上弹出一个新的标签页，即为调试界面；如果很久都没用响应，请翻墙后再试（ "示意图":images/调试Android上的Chrome_2.png ）（ "一个免费的翻墙服务":http://lfjs.me/gwrbea ）
+
+其他参考链接
+
 * https://developers.google.com/chrome-developer-tools/docs/remote-debugging
 
 h3. 调试Android上的UC
@@ -87,8 +103,8 @@ h3. 调试iOS上的Safari
 
 # 在iOS设备上打开允许调试：设置->Safari->高级->打开”web检查器“
 # 在MAC上打开Safari的开发菜单：顶部菜单栏“Safari”->偏好设置->高级->打开”在菜单栏中显示“开发”菜单
-# 在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”->找到你的iOS设备名称->右边耳机菜单选择需要调试的对应标签页，即可开始远程调试（ "示意图":images/调试iOS上的Safari_1.png ）
-# 如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”->“Open Developer Tool”->“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。 （ "示意图":images/调试iOS上的Safari_2.png ）（第4条来源：@于江水）
+# 在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”->找到你的iOS设备名称->右边二级菜单选择需要调试的对应标签页，即可开始远程调试（ "示意图":images/调试iOS上的Safari_1.png ）
+# 如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”->“Open Developer Tool”->“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。 （ "示意图":images/调试iOS上的Safari_2.png ）
 
 
 
