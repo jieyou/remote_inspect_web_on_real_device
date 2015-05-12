@@ -67,7 +67,7 @@ h3. 调试Android上的Chrome
 # 勾选界面中的 @Discover USB devices@ ，直到搜索到你的Android设备（ "示意图":images/调试Android上的Chrome_1.png ）
 # 在移动设备上弹出的是否允许远程调试上，选择“允许”
 # 在下面的页面列表（将展示已在Android上的chrome中打开的页面），点击对应的 @inspect@ 开始调试
-# 此时将在桌面版Chrome上弹出一个新的标签页，即为调试界面；如果很久都没用响应，请翻墙后再试（ "示意图":images/调试Android上的Chrome_2.png ）（ "一个免费的翻墙服务":http://lfjs.me/gwrbea ）
+# 此时将在桌面版Chrome上弹出一个新的标签页，即为调试界面；如果很久都没用响应，请翻墙后再试（ "示意图":images/调试Android上的Chrome_2.png ）（ "一个免费的梯子服务":http://lfjs.me/gwrbea ）（"免费10天稳定梯子服务":http://honx.in/_U6fKbIKo102euHSx）
 
 其他参考链接
 
@@ -105,7 +105,6 @@ h3. 调试iOS上的Safari
 # 在MAC上打开Safari的开发菜单：顶部菜单栏“Safari”->偏好设置->高级->打开”在菜单栏中显示“开发”菜单
 # 在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”->找到你的iOS设备名称->右边二级菜单选择需要调试的对应标签页，即可开始远程调试（ "示意图":images/调试iOS上的Safari_1.png ）
 # 如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”->“Open Developer Tool”->“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。 （ "示意图":images/调试iOS上的Safari_2.png ）
-
 
 
 
