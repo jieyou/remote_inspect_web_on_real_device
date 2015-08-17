@@ -124,7 +124,7 @@ bq. 有时 adb devices不能显示连接设备，需要拔掉数据线，多插�
 
 bc. python ./inspector.py --adb /Users/sherlock/dev/android-sdk-macosx/platform-tools/adb
 
-* 启动成功，PC打开chrome浏览器，访问 http://localhost:9222/ ；手机打开微信任意webview，就能在chrome看到这个页面的选项卡，点进去就是熟悉的调试界面，请自由的使用～（ "示意图":images/调试Android上的x5内核_5.png ）
+* 启动成功，PC打开chrome浏览器，访问 <a href="http://localhost:9222/">http://localhost:9222/<a> ；手机打开微信任意webview，就能在chrome看到这个页面的选项卡，点进去就是熟悉的调试界面，请自由的使用～（ "示意图":images/调试Android上的x5内核_5.png ）
 
 其他参考链接
 
