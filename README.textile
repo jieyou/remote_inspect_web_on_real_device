@@ -18,7 +18,7 @@ h2. 总览表格
 |weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 						|
 |调试Android上的Chrome	 	|需要翻墙						|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 		|
 |调试Android APP里的webview 	|需要翻墙						|3														|4														|PC、MAC				|Android APP里的webview			| "GO":#%E8%B0%83%E8%AF%95android-app%E9%87%8C%E7%9A%84webview 	|
-|调试Android上的x5内核（微信等）|安装较为繁琐						|4														|5														|PC、MAC				|Android上的应用了x5内核的app，如微信、手Q、QQ浏览器等| "GO":#%E8%B0%83%E8%AF%95Android%E4%B8%8A%E7%9A%84x5%E5%86%85%E6%A0%B8 			|
+|调试Android上的x5内核（微信等）|安装较为繁琐					|4														|5														|PC、MAC				|Android上的应用了x5内核的app，如微信、手Q、QQ浏览器等| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84x5%E5%86%85%E6%A0%B8 			|
 |调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1														|3														|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 			|
 |调试iOS上的Safari		 	|需要MAC（甚至可以无需iOS设备）	|2														|4														|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 			|
 
