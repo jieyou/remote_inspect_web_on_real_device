@@ -18,6 +18,7 @@ h2. 总览表格
 |weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 						|
 |调试Android上的Chrome	 	|需要翻墙						|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 		|
 |调试Android APP里的webview 	|需要翻墙						|3														|4														|PC、MAC				|Android APP里的webview			| "GO":#%E8%B0%83%E8%AF%95android-app%E9%87%8C%E7%9A%84webview 	|
+|调试Android上的x5内核（微信等）|安装较为繁琐					|3														|5														|PC、MAC				|Android上的应用了x5内核的app，如微信、手Q、QQ浏览器等| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84x5%E5%86%85%E6%A0%B8 			|
 |调试Android上的UC		 	|需要桌面设备和移动设备同一网段	|1														|3														|PC、MAC				|Android上的UC					| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84uc 			|
 |调试iOS上的Safari		 	|需要MAC（甚至可以无需iOS设备）	|2														|4														|MAC				|iOS上的Safari					| "GO":#%E8%B0%83%E8%AF%95ios%E4%B8%8A%E7%9A%84safari 			|
 
@@ -87,6 +88,47 @@ h3. 调试Android APP里的webview
 其他参考链接
 
 * https://developers.google.com/chrome-developer-tools/docs/remote-debugging
+
+h3. 调试Android上的x5内核
+
+过程略繁琐，但是这个方案应该是目前调试webview最强大的工具，支持断点调试、控制台打印等。以下步骤以微信6.1举例：
+
+*前期准备*
+* 下载 "TbsSuiteNew.apk":http://res.imtt.qq.com///tbs_inspect/TbsSuiteNew.zip 安装到手机
+* 打开微信，进入任意聊天界面，输入框内输入//deletetbs，点发送
+* 打开TbsSuiteNew，安装本地tbs内核（ "示意图":images/调试Android上的x5内核_1.png ）
+
+bq. 应用包名 微信：com.tencent.mm，qq：com.tencent.mobileqq，qq空间：com.qzone
+我们选择微信即可
+
+* 启动应用，用微信访问一个页面，停留1分钟左右，目的是让微信来静默安装刚导入进去的tbs_xxxx_inspector.apk包（ "示意图":images/调试Android上的x5内核_2.png ）
+* 一分钟过后打开TbsSuiteNew 检查是否安装成功。（ "示意图":images/调试Android上的x5内核_3.png ）
+
+bq. 这里还需要在检查下 打开微信 随便进入一个 webview页面 然后长按页面文字是否有水滴 ，若有则成功
+
+*ADB安装*
+* 官网下载 "android-sdk":http://developer.android.com/sdk/installing/index.html ，执行tools文件夹下面的android，然后选择android sdk platform tools 安装（ "示意图":images/调试Android上的x5内核_4.png ）
+* 配置android环境变量 vim ~/.bash_profile
+
+bc. export ANDROID_TOOLS=/Users/sherlock/dev/android-sdk-macosx/platform-tools
+export PATH=$PATH:$ANDROID_TOOLS
+
+* 输入source .bash_profile，执行下环境变量；接着在终端输入adb，看是否已经配置ok；
+* usb连接手机，启动调试模式。终端输入adb devices，就能看到已经连接的设备。
+
+bq. 有时 adb devices不能显示连接设备，需要拔掉数据线，多插几次，并且退出终端，然后重新打开，重启adb。
+
+*python启动调试服务*
+* 下载 "调试包":http://res.imtt.qq.com///tbs_inspect/wx_sq_webview_debug.zip ，解压，找到其中的inspector_client20150401 解压，然后进入
+* 执行以下python命令， python ./inspector.py --abd 你自己的adb路径
+
+bc. python ./inspector.py --adb /Users/sherlock/dev/android-sdk-macosx/platform-tools/adb
+
+* 启动成功，PC打开chrome浏览器，访问 <a href="http://localhost:9222/">http://localhost:9222/<a> ；手机打开微信任意webview，就能在chrome看到这个页面的选项卡，点进去就是熟悉的调试界面，请自由的使用～（ "示意图":images/调试Android上的x5内核_5.png ）
+
+其他参考链接
+
+* http://www.jianshu.com/p/ccf124f1f74b
 
 h3. 调试Android上的UC
 
