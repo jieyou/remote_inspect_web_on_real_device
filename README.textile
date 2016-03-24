@@ -65,8 +65,8 @@ h3. spy-debugger(集成weinre)
 内部集成了weinre，简化了weinre繁琐的配置过程。通过代理的方式拦截所有html自动注入weinre所需的js代码。
 
 1. 安装
-    Windows:  npm install spy-debugger -g
-    Mac: sudo npm install spy-debugger -g
+    Windows:  @npm install spy-debugger -g@
+    Mac:      @sudo npm install spy-debugger -g@
 
 2. 手机和PC保持在同一网络下（比如同时连到一个Wi-Fi下）
 
