@@ -16,7 +16,7 @@ h2. 总览表格
 |_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数 *小* 为佳）		|调试效果（综合考虑仿真效果、能调试的项等，分数 *大* 为佳）		|_. 可用的桌面设备		|_. 可用的移动设备及可调试的浏览器	|简要步骤															|
 |Chorme模拟器				|非真机，只是模拟				|0														|2（新版本加入了模拟网络链接的功能，故上调评分）				|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 						|
 |weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 						|
-|spy-debugger (集成weinre)	  |需要桌面设备和移动设备同一网段  |1														|2														|PC、MAC				|全部							| "GO":#spy-debugger							 						|
+|spy-debugger (简化weinre配置)	  |需要桌面设备和移动设备同一网段  |1														|2														|PC、MAC				|全部							| "GO":#spy-debugger							 						|
 |调试Android上的Chrome	 	|需要翻墙						|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 		|
 |调试Android APP里的webview 	|需要翻墙						|3														|4														|PC、MAC				|Android APP里的webview			| "GO":#%E8%B0%83%E8%AF%95android-app%E9%87%8C%E7%9A%84webview 	|
 |调试Android上的x5内核（微信等）|安装较为繁琐					|3														|5														|PC、MAC				|Android上的应用了x5内核的app，如微信、手Q、QQ浏览器等| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84x5%E5%86%85%E6%A0%B8 			|
