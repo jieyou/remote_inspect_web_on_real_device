@@ -70,7 +70,7 @@ h3. spy-debugger(集成weinre)
 
 2. 手机和PC保持在同一网络下（比如同时连到一个Wi-Fi下）
 
-3. 命令行输入spy-debugger，按提示用浏览器打开相应地址。
+3. 命令行输入spy-debugger，按命令行提示用浏览器打开相应地址。
 
 4. 设置手机的HTTP代理，代理IP地址设置为PC的IP地址，端口为spy-debugger的启动端口。
 
