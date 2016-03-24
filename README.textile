@@ -16,6 +16,7 @@ h2. 总览表格
 |_. 方法						|关键点						|实现难度（综合考虑搭环境、软件、硬件成本，分数 *小* 为佳）		|调试效果（综合考虑仿真效果、能调试的项等，分数 *大* 为佳）		|_. 可用的桌面设备		|_. 可用的移动设备及可调试的浏览器	|简要步骤															|
 |Chorme模拟器				|非真机，只是模拟				|0														|2（新版本加入了模拟网络链接的功能，故上调评分）				|PC、MAC				|无								| "GO":#chorme%E6%A8%A1%E6%8B%9F%E5%99%A8 						|
 |weinre						|安装较为繁琐					|3														|2														|PC、MAC				|全部							| "GO":#weinre							 						|
+|spy-debugger(集成weinre)	  |需要桌面设备和移动设备同一网段  |0														|2														|PC、MAC				|全部							| "GO":#spy-debugger							 						|
 |调试Android上的Chrome	 	|需要翻墙						|2														|4														|PC、MAC				|Android上的Chrome				| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84chrome 		|
 |调试Android APP里的webview 	|需要翻墙						|3														|4														|PC、MAC				|Android APP里的webview			| "GO":#%E8%B0%83%E8%AF%95android-app%E9%87%8C%E7%9A%84webview 	|
 |调试Android上的x5内核（微信等）|安装较为繁琐					|3														|5														|PC、MAC				|Android上的应用了x5内核的app，如微信、手Q、QQ浏览器等| "GO":#%E8%B0%83%E8%AF%95android%E4%B8%8A%E7%9A%84x5%E5%86%85%E6%A0%B8 			|
@@ -37,7 +38,7 @@ h3. weinre
 
 1. 安装nodejs <!--pre前后要空格，所以使用#会重新开始编号，于是此处手动写上编号-->
 2. 安装weinre到global，即在命令行中运行 @npm -g install weinre@ （MAC可能需要在前面加上 @sudo@ ）
-3. 获取本机IP地址（PC：开始->运行->cmd，输入 @ipconfig@ ，查看“IPv4地址”字段； MAC：在网络偏好设置内），假设获取到的IP地址为 @4.4.4.4@ 
+3. 获取本机IP地址（PC：开始->运行->cmd，输入 @ipconfig@ ，查看“IPv4地址”字段； MAC：在网络偏好设置内），假设获取到的IP地址为 @4.4.4.4@
 4. 在命令行运行weinre： @weinre --boundHost 4.4.4.4@ ，其中IP地址为上一步所获取的地址，如果弹出防火墙，请允许访问（ "示意图":images/weinre_1.jpg ）
 5. 在PC或MAC上用浏览器打开 @http://4.4.4.4:8080/client/#anonymous@ ，其中IP地址为第三步所获取的地址（ "示意图":images/weinre_2.jpg ）
 6. 将移动设备连接到与PC或MAC同一局域网，打开移动设备上的需要调试的浏览器，然后随便打开一个网页。将它保存为书签
@@ -58,6 +59,26 @@ target/target-script-min.js#anonymous");document.getElementsByTagName("body")[
 其他参考链接
 
 * http://people.apache.org/~pmuellr/weinre-docs/latest/Installing.html
+
+h3. spy-debugger(集成weinre)
+
+内部集成了weinre，简化了weinre繁琐的配置过程。通过代理的方式拦截所有html自动注入weinre所需的js代码。
+
+1. 安装
+    Windows:  npm install spy-debugger -g
+    Mac: sudo npm install spy-debugger -g
+
+2. 手机和PC保持在同一网络下（比如同时连到一个Wi-Fi下）
+
+3. 命令行输入spy-debugger，按提示用浏览器打开相应地址。
+
+4. 设置手机的HTTP代理，代理IP地址设置为PC的IP地址，端口为spy-debugger的启动端口。
+
+5. 用手机浏览器访问你要调试的页面即可。
+
+其他参考链接
+
+* https://github.com/wuchangming/spy-debugger
 
 h3. 调试Android上的Chrome
 
@@ -133,7 +154,7 @@ bc. python ./inspector.py --adb /Users/sherlock/dev/android-sdk-macosx/platform-
 h3. 调试Android上的UC
 
 # 在Android设备上安装UC浏览器开发版，http://www.uc.cn/business/developer/ ，点击第一行右侧的“安装包下载”（ "示意图":images/调试Android上的UC_1.png ）
-# 获取Android设备的IP，一般在WLAN设置内，假设为 @4.4.4.4@ 
+# 获取Android设备的IP，一般在WLAN设置内，假设为 @4.4.4.4@
 # 用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 @:9998@ ，如例子中即为 @4.4.4.4:9998@
 # 在Android设备上弹出的是否允许远程调试上，选择“允许”（ "示意图":images/调试Android上的UC_2.png ），即可开始调试（ "示意图":images/调试Android上的UC_3.png ）
 
@@ -147,20 +168,3 @@ h3. 调试iOS上的Safari
 # 在MAC上打开Safari的开发菜单：顶部菜单栏“Safari”->偏好设置->高级->打开”在菜单栏中显示“开发”菜单
 # 在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”->找到你的iOS设备名称->右边二级菜单选择需要调试的对应标签页，即可开始远程调试（ "示意图":images/调试iOS上的Safari_1.png ）
 # 如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”->“Open Developer Tool”->“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。 （ "示意图":images/调试iOS上的Safari_2.png ）
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
